@@ -48,25 +48,7 @@ CREATE TABLE ChiTietHoaDon (
     CONSTRAINT FK_CTHD_SanPham FOREIGN KEY (MaSP) REFERENCES SanPham(MaSP)
 );
 
-
-USE SalesDB;
-GO
-
-
-
-DELETE FROM ChiTietHoaDon;
-DELETE FROM HoaDon;
-DELETE FROM SanPham;
-DELETE FROM KhachHang;
-DELETE FROM NhanVien;
-
--- 2. Reset lại các cột ID tự tăng về ban đầu
-DBCC CHECKIDENT ('NhanVien', RESEED, 0);
-DBCC CHECKIDENT ('KhachHang', RESEED, 0);
-DBCC CHECKIDENT ('HoaDon', RESEED, 0);
-GO
-
--- 3. Chèn lại dữ liệu mẫu mới
+-- 3. Chèn dữ liệu mẫu
 INSERT INTO NhanVien (TenNV, SoDienThoai, ChucVu) VALUES 
 (N'Nguyễn Văn An', '0901234567', N'Thu ngân'),
 (N'Trần Thị Bình', '0907654321', N'Thu ngân'),
